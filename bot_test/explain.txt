@@ -1,0 +1,583 @@
+m(1)
+km(0.001)
+dm(10)
+cm(100)
+mm(1000)
+µm(1000000)
+nm(1000000000)
+mi(0.0006213712)
+yd(1.0936132983)
+ft(3.280839895)
+in(39.37007874)
+ly(1.057000834E-16)
+Em(1.E-18)
+Pm(1.E-15)
+Tm(1.E-12)
+Gm(1.E-9)
+Mm(0.000001)
+hm(0.01)
+dam(0.1)
+µ(1000000)
+pm(1000000000000)
+fm(1000000000000000)
+am(1000000000000000000)
+Mpc(3.240779289E-23)
+kpc(3.240779289E-20)
+pc(3.240779289E-17)
+AU(6.684587122E-12)
+lea(0.0002071237)
+A(1.0E+41)
+
+
+
+USD [United States Dollar] (1)
+EUR [Euro] (0.861853)
+AUD [Australian Dollar] (1.411308)
+CAD [Canadian Dollar] (1.34195)
+CHF [Swiss Franc] (0.924786)
+CNY [Chinese Yuan] (7.0198)
+EUR [Euro] (0.861853)
+GBP [British Pound Sterling] (0.785157)
+INR [Indian Rupee] (74.888501)
+JPY [Japanese Yen] (106.418)
+MXN [Mexican Peso] (22.54648)
+AED [United Arab Emirates Dirham] (3.67298)
+AFN [Afghan Afghani] (77.15)
+ALL [Albanian Lek] (106.776772)
+AMD [Armenian Dram] (481.616228)
+ANG [Netherlands Antillean Guilder] (1.790863)
+AOA [Angolan Kwanza] (557.96)
+ARS [Argentine Peso] (71.7642)
+AWG [Aruban Florin] (1.8)
+AZN [Azerbaijani Manat] (1.7025)
+BAM [Bosnia-Herzegovina Convertible Mark] (1.684035)
+BBD [Barbadian Dollar] (2)
+BDT [Bangladeshi Taka] (84.59972)
+BGN [Bulgarian Lev] (1.685755)
+BHD [Bahraini Dinar] (0.37704)
+BIF [Burundian Franc] (1922.159007)
+BMD [Bermudan Dollar] (1)
+BND [Brunei Dollar] (1.381457)
+BOB [Bolivian Boliviano] (6.889307)
+BRL [Brazilian Real] (5.2122)
+BSD [Bahamian Dollar] (1)
+BTC [Bitcoin] (0.0001046413)
+BTN [Bhutanese Ngultrum] (74.477446)
+BWP [Botswanan Pula] (11.454587)
+BYN [Belarusian Ruble] (2.382521)
+BZD [Belize Dollar] (2.011064)
+CDF [Congolese Franc] (1940.253669)
+CLF [Chilean Unit of Account] (0.028053)
+CLP [Chilean Peso] (770.398813)
+CNH [Chinese Yuan] (7.023525)
+CNY [Chinese Yuan] (7.023525)
+COP [Colombian Peso] (3633.770199)
+CRC [Costa Rican Colón] (580.382935)
+CUC [Cuban Convertible Peso] (1)
+CUP [Cuban Peso] (25.75)
+CVE [Cape Verdean Escudo] (95.55)
+CZK [Czech Republic Koruna] (22.692601)
+DJF [Djiboutian Franc] (177.612483)
+DKK [Danish Krone] (6.41526)
+DOP [Dominican Peso] (58.225163)
+DZD [Algerian Dinar] (127.683034)
+EGP [Egyptian Pound] (15.9842)
+ERN [Eritrean Nakfa] (15.002871)
+ETB [Ethiopian Birr] (35.054093)
+FJD [Fijian Dollar] (2.1382)
+FKP [Falkland Islands Pound] (0.785157)
+GEL [Georgian Lari] (3.065)
+GGP [Guernsey Pound] (0.785157)
+GHS [Ghanaian Cedi] (5.786761)
+GIP [Gibraltar Pound] (0.785157)
+GMD [Gambian Dalasi] (51.8)
+GNF [Guinean Franc] (9620.081798)
+GTQ [Guatemalan Quetzal] (7.679796)
+GYD [Guyanaese Dollar] (208.571707)
+HKD [Hong Kong Dollar] (7.751975)
+HNL [Honduran Lempira] (24.674788)
+HRK [Croatian Kuna] (6.4835)
+HTG [Haitian Gourde] (110.272889)
+HUF [Hungarian Forint] (299.118343)
+IDR [Indonesian Rupiah] (14645)
+ILS [Israeli New Sheqel] (3.41845)
+IMP [Manx pound] (0.785157)
+IQD [Iraqi Dinar] (1191.07051)
+IRR [Iranian Rial] (42105)
+ISK [Icelandic Króna] (136)
+JEP [Jersey Pound] (0.785157)
+JMD [Jamaican Dollar] (145.145697)
+JOD [Jordanian Dinar] (0.709)
+KES [Kenyan Shilling] (107.904189)
+KGS [Kyrgystani Som] (77.019135)
+KHR [Cambodian Riel] (4090.377374)
+KMF [Comorian Franc] (424.924947)
+KPW [North Korean Won] (900)
+KRW [South Korean Won] (1202.165)
+KWD [Kuwaiti Dinar] (0.306581)
+KYD [Cayman Islands Dollar] (0.831428)
+KZT [Kazakhstani Tenge] (412.735127)
+LAK [Laotian Kip] (9041.555572)
+LBP [Lebanese Pound] (1508.728901)
+LKR [Sri Lankan Rupee] (185.348662)
+LRD [Liberian Dollar] (199.300046)
+LSL [Lesotho Loti] (16.515797)
+LYD [Libyan Dinar] (1.382463)
+MAD [Moroccan Dirham] (9.424772)
+MDL [Moldovan Leu] (16.845043)
+MGA [Malagasy Ariary] (3843.616883)
+MKD [Macedonian Denar] (53.05258)
+MMK [Myanma Kyat] (1374.324437)
+MNT [Mongolian Tugrik] (2844.247755)
+MOP [Macanese Pataca] (7.965834)
+MRO [Mauritanian Ouguiya] (357)
+MRU [Mauritanian Ouguiya] (38.445676)
+MUR [Mauritian Rupee] (40.049996)
+MVR [Maldivian Rufiyaa] (15.41)
+MWK [Malawian Kwacha] (737.213145)
+MYR [Malaysian Ringgit] (4.263)
+MZN [Mozambican Metical] (70.639993)
+NAD [Namibian Dollar] (16.54)
+NGN [Nigerian Naira] (387.11)
+NIO [Nicaraguan Córdoba] (34.692691)
+NOK [Norwegian Krone] (9.236092)
+NPR [Nepalese Rupee] (119.161699)
+NZD [New Zealand Dollar] (1.508739)
+OMR [Omani Rial] (0.385006)
+PAB [Panamanian Balboa] (1)
+PEN [Peruvian Nuevo Sol] (3.500445)
+PGK [Papua New Guinean Kina] (3.466398)
+PHP [Philippine Peso] (49.332275)
+PKR [Pakistani Rupee] (167.736324)
+PLN [Polish Zloty] (3.801423)
+PYG [Paraguayan Guarani] (6941.606393)
+QAR [Qatari Rial] (3.64075)
+RON [Romanian Leu] (4.166)
+RSD [Serbian Dinar] (101.36)
+RUB [Russian Ruble] (71.518)
+RWF [Rwandan Franc] (955.788271)
+SAR [Saudi Riyal] (3.750756)
+SBD [Solomon Islands Dollar] (8.31485)
+SCR [Seychellois Rupee] (17.645917)
+SDG [Sudanese Pound] (55.375)
+SEK [Swedish Krona] (8.865077)
+SGD [Singapore Dollar] (1.385644)
+SHP [Saint Helena Pound] (0.785157)
+SLL [Sierra Leonean Leone] (9759.999789)
+SOS [Somali Shilling] (577.073363)
+SRD [Surinamese Dollar] (7.458)
+SSP [South Sudanese Pound] (130.26)
+STD [São Tomé and Príncipe Dobra] (21672.936684)
+STN [São Tomé and Príncipe Dobra] (21.395)
+SVC [Salvadoran Colón] (8.730169)
+SYP [Syrian Pound] (513.136253)
+SZL [Swazi Lilangeni] (16.515398)
+THB [Thai Baht] (31.76316)
+TJS [Tajikistani Somoni] (10.283842)
+TMT [Turkmenistani Manat] (3.5025)
+TND [Tunisian Dinar] (2.7845)
+TOP [Tongan Pa anga] (2.276172)
+TRY [Turkish Lira] (6.8456)
+TTD [Trinidad and Tobago Dollar] (6.747519)
+TWD [New Taiwan Dollar] (29.4725)
+TZS [Tanzanian Shilling] (2322)
+UAH [Ukrainian Hryvnia] (27.804061)
+UGX [Ugandan Shilling] (3694.516519)
+UYU [Uruguayan Peso] (42.996077)
+UZS [Uzbekistan Som] (10197.737875)
+VEF [Venezuelan Bolívar Fuerte] (248487.64224)
+VES [Venezuelan Bolívar Soberano] (236824.28881)
+VND [Vietnamese Dong] (23150.656888)
+VUV [Vanuatu Vatu] (114.999127)
+WST [Samoan Tala] (2.632096)
+XAF [CFA Franc BEAC] (565.338604)
+XAG [Silver Ounce] (0.04448699)
+XAU [Gold Ounce] (0.00053042)
+XCD [East Caribbean Dollar] (2.70255)
+XDR [Special Drawing Rights] (0.71652)
+XOF [CFA Franc BCEAO] (565.338604)
+XPD [Palladium Ounce] (0.00046813)
+XPF [CFP Franc] (102.846438)
+XPT [Platinum Ounce] (0.0011146)
+YER [Yemeni Rial] (250.300053)
+ZAR [South African Rand] (16.718099)
+ZMW [Zambian Kwacha] (18.113373)
+ZWL [Zimbabwean Dollar] (322)
+
+
+
+for b in a:
+    l1 = b.find('[')
+    l2 = b.find(']')
+    re = f'{b[:l1]}{b[l2+1:]}'
+    re1 = re.replace(' ', '')
+    print
+
+
+
+
+
+
+
+with open('tem_conv.txt') as uc:
+    lines = uc.readlines()
+
+
+currencyDict = {}
+for line in lines:
+    line1 = line.replace(')\n', ' ]]')
+    line2 = line1.replace('(', ' ')
+    parsed = line2.split(' ')
+
+    currencyDict[parsed[0]] = parsed[1]
+
+
+a = float(currencyDict['kelvin'])
+b = float(currencyDict['celsius'])
+
+print(a/b)
+
+
+
+
+
+
+
+
+
+
+
+        conv1_embed.set_author(name='Unit Converter')
+        conv1_embed.set_footer(text='Page 1')
+        conv1_embed.add_field(name='Currency Converter ', value='''
+USD [United States Dollar]
+EUR [Euro]
+AUD [Australian Dollar]
+CAD [Canadian Dollar]
+CHF [Swiss Franc]
+CNY [Chinese Yuan]
+EUR [Euro]
+GBP [British Pound Sterling]
+INR [Indian Rupee]
+JPY [Japanese Yen]
+MXN [Mexican Peso]
+AED [United Arab Emirates Dirham]
+AFN [Afghan Afghani]
+ALL [Albanian Lek]
+AMD [Armenian Dram]
+ANG [Netherlands Antillean Guilder]
+AOA [Angolan Kwanza]
+ARS [Argentine Peso]
+AWG [Aruban Florin]
+AZN [Azerbaijani Manat]
+BAM [Bosnia-Herzegovina Convertible Mark]
+BBD [Barbadian Dollar]
+BDT [Bangladeshi Taka]
+BGN [Bulgarian Lev]
+BHD [Bahraini Dinar]
+BIF [Burundian Franc]
+BMD [Bermudan Dollar]
+BND [Brunei Dollar]
+BOB [Bolivian Boliviano]
+BRL [Brazilian Real]
+BSD [Bahamian Dollar]
+BTC [Bitcoin]
+BTN [Bhutanese Ngultrum]
+BWP [Botswanan Pula]
+BYN [Belarusian Ruble]
+
+''')
+        await ctx.send(embed=conv1_embed)
+
+
+        conv2_embed = discord.Embed(
+            title='',
+            description='''
+BZD [Belize Dollar]
+CDF [Congolese Franc]
+CLF [Chilean Unit of Account]
+CLP [Chilean Peso]
+CNH [Chinese Yuan]
+CNY [Chinese Yuan]
+COP [Colombian Peso]
+CRC [Costa Rican Colón]
+CUC [Cuban Convertible Peso]
+CUP [Cuban Peso]
+CVE [Cape Verdean Escudo]
+CZK [Czech Republic Koruna]
+DJF [Djiboutian Franc]
+DKK [Danish Krone]
+DOP [Dominican Peso]
+DZD [Algerian Dinar]
+EGP [Egyptian Pound]
+ERN [Eritrean Nakfa]
+ETB [Ethiopian Birr]
+FJD [Fijian Dollar]
+FKP [Falkland Islands Pound]
+GEL [Georgian Lari]
+GGP [Guernsey Pound]
+GHS [Ghanaian Cedi]
+GIP [Gibraltar Pound]
+GMD [Gambian Dalasi]
+GNF [Guinean Franc]
+GTQ [Guatemalan Quetzal]
+GYD [Guyanaese Dollar]
+HKD [Hong Kong Dollar]
+HNL [Honduran Lempira]
+HRK [Croatian Kuna]
+HTG [Haitian Gourde]
+HUF [Hungarian Forint]
+IDR [Indonesian Rupiah]''',
+        color=discord.Color.blurple()
+        )
+        conv2_embed.set_footer(text='Page 2')
+        await ctx.send(embed=conv2_embed)
+
+
+        conv3_embed = discord.Embed(
+            title='',
+            description='''
+ILS [Israeli New Sheqel]
+IMP [Manx pound]
+IQD [Iraqi Dinar]
+IRR [Iranian Rial]
+ISK [Icelandic Króna]
+JEP [Jersey Pound]
+JMD [Jamaican Dollar]
+JOD [Jordanian Dinar]
+KES [Kenyan Shilling]
+KGS [Kyrgystani Som]
+KHR [Cambodian Riel]
+KMF [Comorian Franc]
+KPW [North Korean Won]
+KRW [South Korean Won]
+KWD [Kuwaiti Dinar]
+KYD [Cayman Islands Dollar]
+KZT [Kazakhstani Tenge]
+LAK [Laotian Kip]
+LBP [Lebanese Pound]
+LKR [Sri Lankan Rupee]
+LRD [Liberian Dollar]
+LSL [Lesotho Loti]
+LYD [Libyan Dinar]
+MAD [Moroccan Dirham]
+MDL [Moldovan Leu]
+MGA [Malagasy Ariary]
+MKD [Macedonian Denar]
+MMK [Myanma Kyat]
+MNT [Mongolian Tugrik]
+MOP [Macanese Pataca]
+MRO [Mauritanian Ouguiya]
+MRU [Mauritanian Ouguiya]
+MUR [Mauritian Rupee]
+MVR [Maldivian Rufiyaa]
+MWK [Malawian Kwacha]''',
+            color=discord.Color.blurple()
+        )
+        conv3_embed.set_footer(text='Page 3')
+        await ctx.send(embed=conv3_embed)
+
+        conv4_embed = discord.Embed(
+            title='',
+            description='''
+MYR [Malaysian Ringgit]
+MZN [Mozambican Metical]
+NAD [Namibian Dollar]
+NGN [Nigerian Naira]
+NIO [Nicaraguan Córdoba]
+NOK [Norwegian Krone]
+NPR [Nepalese Rupee]
+NZD [New Zealand Dollar]
+OMR [Omani Rial]
+PAB [Panamanian Balboa]
+PEN [Peruvian Nuevo Sol]
+PGK [Papua New Guinean Kina]
+PHP [Philippine Peso]
+PKR [Pakistani Rupee]
+PLN [Polish Zloty]
+PYG [Paraguayan Guarani]
+QAR [Qatari Rial]
+RON [Romanian Leu]
+RSD [Serbian Dinar]
+RUB [Russian Ruble]
+RWF [Rwandan Franc]
+SAR [Saudi Riyal]
+SBD [Solomon Islands Dollar]
+SCR [Seychellois Rupee]
+SDG [Sudanese Pound]
+SEK [Swedish Krona]
+SGD [Singapore Dollar]
+SHP [Saint Helena Pound]
+SLL [Sierra Leonean Leone]
+SOS [Somali Shilling]
+SRD [Surinamese Dollar]
+SSP [South Sudanese Pound]
+STD [São Tomé and Príncipe Dobra]
+STN [São Tomé and Príncipe Dobra]
+SVC [Salvadoran Colón]
+''',
+        color=discord.Color.blurple())
+        conv4_embed.set_footer(text='Page 4')
+        await ctx.send(embed=conv4_embed)
+
+        conv5_embed = discord.Embed(
+            title='',
+            description='''
+SYP [Syrian Pound]
+SZL [Swazi Lilangeni]
+THB [Thai Baht]
+TJS [Tajikistani Somoni]
+TMT [Turkmenistani Manat]
+TND [Tunisian Dinar]
+TOP [Tongan Pa anga]
+TRY [Turkish Lira]
+TTD [Trinidad and Tobago Dollar]
+TWD [New Taiwan Dollar]
+TZS [Tanzanian Shilling]
+UAH [Ukrainian Hryvnia]
+UGX [Ugandan Shilling]
+UYU [Uruguayan Peso]
+UZS [Uzbekistan Som]
+VEF [Venezuelan Bolívar Fuerte]
+VES [Venezuelan Bolívar Soberano]
+VND [Vietnamese Dong]
+VUV [Vanuatu Vatu]
+WST [Samoan Tala]
+XAF [CFA Franc BEAC]
+XAG [Silver Ounce]
+XAU [Gold Ounce]
+XCD [East Caribbean Dollar]
+XDR [Special Drawing Rights]
+XOF [CFA Franc BCEAO]
+XPD [Palladium Ounce]
+XPF [CFP Franc]
+XPT [Platinum Ounce]
+YER [Yemeni Rial]
+ZAR [South African Rand]
+ZMW [Zambian Kwacha]
+ZWL [Zimbabwean Dollar]''',
+        color=discord.Color.blurple())
+        conv5_embed.set_footer(text='Page 5')
+
+
+
+
+
+
+
+
+import wikipediaapi
+
+try:
+    input1 = input()
+    wiki_wiki = wikipediaapi.Wikipedia('en')
+    page_py = wiki_wiki.page(input1)
+    page_summary = page_py.summary
+
+    if 'may refer to:' in page_summary:
+        print('Again')
+    if input1 not in page_summary:
+        print('No')
+    else:
+        print(page_summary)
+except BaseException as BE:
+    print(BE)
+
+
+
+
+
+
+
+
+
+                        def ans():
+
+
+                        if __name__ == '__main__':
+                            # Start bar as a process
+                            p = multiprocessing.Process(target=ans)
+                            p.start()
+
+                            # Wait for 3 seconds or until process finishes
+                            p.join(3)
+
+                            # If thread is still active
+                            if p.is_alive():
+                                await ctx.send('```diff\n- CANNOT HANDLE ! Probably the result is too large... Sorry for this inconvenience```')
+
+                                # Terminate
+                                p.terminate()
+                                p.join()
+
+
+
+
+async def main():
+
+   try:
+      await asyncio.wait_for(asyncio.sleep(3600), timeout=1.0)
+      print(2+2)
+   except asyncio.TimeoutError:
+      print('timeout!')
+
+
+
+
+
+
+
+
+
+import asyncio
+from concurrent.futures import ProcessPoolExecutor
+
+def calc():
+    return 2+2
+
+async def main():
+    with ProcessPoolExecutor(max_workers=1) as executor:
+        coro = asyncio.get_running_loop().run_in_executor(executor, calc)
+        try:
+            result = await asyncio.wait_for(coro, timeout=3.0)
+            print(result)
+        except asyncio.TimeoutError:
+            print("Timed out.")
+            for process in executor._processes.values():
+                process.terminate()
+            print("Process terminated.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+
+
+
+
+
+
+
+
+import psutil
+
+
+def checkIfProcessRunning(processName):
+    '''
+    Check if there is any running process that contains the given name processName.
+    '''
+    # Iterate over the all the running process
+    for proc in psutil.process_iter():
+        try:
+            # Check if process name contains the given name string.
+            if processName.lower() in proc.name().lower():
+                return True
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    return False
+
+
+if checkIfProcessRunning('PyCharm'):
+    print('yes')
+else:
+    print('no')
