@@ -1,0 +1,603 @@
+from youtube_search import YoutubeSearch
+
+results = YoutubeSearch('lathi fingerstyle', max_results=10).to_dict()
+for v in results:
+    print('https://www.youtube.com' + v['url_suffix'])
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+
+countries_list = ['US', 'USA', 'City',  'United States',    'AF', 'Afghanistan',    'AL', 'Albania',    'DZ', 'Algeria',    'AS', 'American Samoa',    'AD', 'Andorra',    'AO', 'Angola',    'AI', 'Anguilla',    'AQ', 'Antarctica',    'AG', 'Antigua And Barbuda',    'AR', 'Argentina',    'AM', 'Armenia',    'AW', 'Aruba',    'AU', 'Australia',    'AT', 'Austria',    'AZ', 'Azerbaijan',    'BS', 'Bahamas',    'BH', 'Bahrain',    'BD', 'Bangladesh',    'BB', 'Barbados',    'BY', 'Belarus',    'BE', 'Belgium',    'BZ', 'Belize',    'BJ', 'Benin',    'BM', 'Bermuda',    'BT', 'Bhutan',    'BO', 'Bolivia',    'BA', 'Bosnia And Herzegowina',    'BW', 'Botswana',    'BV', 'Bouvet Island',    'BR', 'Brazil',    'BN', 'Brunei Darussalam',    'BG', 'Bulgaria',    'BF', 'Burkina Faso',    'BI', 'Burundi',    'KH', 'Cambodia',    'CM', 'Cameroon',    'CA', 'Canada',    'CV', 'Cape Verde',    'KY', 'Cayman Islands',    'CF', 'Central African Rep',    'TD', 'Chad',    'CL', 'Chile',    'CN', 'China',    'CX', 'Christmas Island',    'CC', 'Cocos Islands',    'CO', 'Colombia',    'KM', 'Comoros',    'CG', 'Congo',    'CK', 'Cook Islands',    'CR', 'Costa Rica',    'CI', 'Cote D`ivoire',    'HR', 'Croatia',    'CU', 'Cuba',    'CY', 'Cyprus',    'CZ', 'Czech Republic',    'DK', 'Denmark',    'DJ', 'Djibouti',    'DM', 'Dominica',    'DO', 'Dominican Republic',    'TP', 'East Timor',    'EC', 'Ecuador',    'EG', 'Egypt',    'SV', 'El Salvador',    'GQ', 'Equatorial Guinea',    'ER', 'Eritrea',    'EE', 'Estonia',    'ET', 'Ethiopia',    'FK', 'Falkland Islands Malvinas',    'FO', 'Faroe Islands',    'FJ', 'Fiji',    'FI', 'Finland',    'FR', 'France',    'GF', 'French Guiana',    'PF', 'French Polynesia',    'TF', 'French S. Territories',    'GA', 'Gabon',    'GM', 'Gambia',    'GE', 'Georgia',    'DE', 'Germany',    'GH', 'Ghana',    'GI', 'Gibraltar',    'GR', 'Greece',    'GL', 'Greenland',    'GD', 'Grenada',    'GP', 'Guadeloupe',    'GU', 'Guam',    'GT', 'Guatemala',    'GN', 'Guinea',    'GW', 'Guinea-bissau',    'GY', 'Guyana',    'HT', 'Haiti',    'HN', 'Honduras',    'HK', 'Hong Kong',    'HU', 'Hungary',    'IS', 'Iceland',    'IN', 'India',    'ID', 'Indonesia',    'IR', 'Iran',    'IQ', 'Iraq',    'IE', 'Ireland',    'IL', 'Israel',    'IT', 'Italy',    'JM', 'Jamaica',    'JP', 'Japan',    'JO', 'Jordan',    'KZ', 'Kazakhstan',    'KE', 'Kenya',    'KI', 'Kiribati',    'KP', 'Korea North',    'KR', 'Korea South',    'KW', 'Kuwait',    'KG', 'Kyrgyzstan',    'LA', 'Laos',    'LV', 'Latvia',    'LB', 'Lebanon',    'LS', 'Lesotho',    'LR', 'Liberia',    'LY', 'Libya',    'LI', 'Liechtenstein',    'LT', 'Lithuania',    'LU', 'Luxembourg',    'MO', 'Macau',    'MK', 'Macedonia',    'MG', 'Madagascar',    'MW', 'Malawi',    'MY', 'Malaysia',    'MV', 'Maldives',    'ML', 'Mali',    'MT', 'Malta',    'MH', 'Marshall Islands',    'MQ', 'Martinique',    'MR', 'Mauritania',    'MU', 'Mauritius',    'YT', 'Mayotte',    'MX', 'Mexico',    'FM', 'Micronesia',    'MD', 'Moldova',    'MC', 'Monaco',    'MN', 'Mongolia',    'MS', 'Montserrat',    'MA', 'Morocco',    'MZ', 'Mozambique',    'MM', 'Myanmar',    'NA', 'Namibia',    'NR', 'Nauru',    'NP', 'Nepal',    'NL', 'Netherlands',    'AN', 'Netherlands Antilles',    'NC', 'New Caledonia',    'NZ', 'New Zealand',    'NI', 'Nicaragua',    'NE', 'Niger',    'NG', 'Nigeria',    'NU', 'Niue',    'NF', 'Norfolk Island',    'MP', 'Northern Mariana Islands',    'NO', 'Norway',    'OM', 'Oman',    'PK', 'Pakistan',    'PW', 'Palau',    'PA', 'Panama',    'PG', 'Papua New Guinea',    'PY', 'Paraguay',    'PE', 'Peru',    'PH', 'Philippines',    'PN', 'Pitcairn',    'PL', 'Poland',    'PT', 'Portugal',    'PR', 'Puerto Rico',    'QA', 'Qatar',    'RE', 'Reunion',    'RO', 'Romania',    'RU', 'Russian Federation',    'RW', 'Rwanda',    'KN', 'Saint Kitts And Nevis',    'LC', 'Saint Lucia',    'VC', 'St Vincent/Grenadines',    'WS', 'Samoa',    'SM', 'San Marino',    'ST', 'Sao Tome',    'SA', 'Saudi Arabia',    'SN', 'Senegal',    'SC', 'Seychelles',    'SL', 'Sierra Leone',    'SG', 'Singapore',    'SK', 'Slovakia',    'SI', 'Slovenia',    'SB', 'Solomon Islands',    'SO', 'Somalia',    'ZA', 'South Africa',    'ES', 'Spain',    'LK', 'Sri Lanka',    'SH', 'St. Helena',    'PM', 'St.Pierre',    'SD', 'Sudan',    'SR', 'Suriname',    'SZ', 'Swaziland',    'SE', 'Sweden',    'CH', 'Switzerland',    'SY', 'Syrian Arab Republic',    'TW', 'Taiwan',    'TJ', 'Tajikistan',    'TZ', 'Tanzania',    'TH', 'Thailand',    'TG', 'Togo',    'TK', 'Tokelau',    'TO', 'Tonga',    'TT', 'Trinidad And Tobago',    'TN', 'Tunisia',    'TR', 'Turkey',    'TM', 'Turkmenistan',    'TV', 'Tuvalu',    'UG', 'Uganda',    'UA', 'Ukraine',    'AE', 'United Arab Emirates',    'UK', 'United Kingdom',    'UY', 'Uruguay',    'UZ', 'Uzbekistan',    'VU', 'Vanuatu',    'VA', 'Vatican City State',    'VE', 'Venezuela',    'VN', 'Viet Nam', 'Vietnam',   'VG', 'Virgin Islands British',    'VI', 'Virgin Islands U.S.',    'EH', 'Western Sahara',    'YE', 'Yemen',    'YU', 'Yugoslavia',    'ZR', 'Zaire',    'ZM', 'Zambia',    'ZW', 'Zimbabwe'
+]
+
+query = input('Search: ')
+query = query.title()
+final_url_list = []
+print(final_url_list)
+print(query)
+for a in countries_list:
+	if a in query:
+		print('yes')
+		print(a)
+		country_url = f'https://www.weather-forecast.com/countries/{a.replace(" ", "-")}'
+		print(country_url)
+		page = requests.get(country_url)
+		soup = BeautifulSoup(page.content, 'html.parser')
+
+
+		query = query.replace(' ', '-')
+		print(query)
+		query1 = query.replace(f'-{a.replace(" ", "-")}', '')
+		print(query1)
+		a = soup.find_all('a')
+		for i in a:
+			link = i.get('href')
+			if query1 in link:
+				print('yes2')
+
+				print(query1)
+				final_url = f'https://www.weather-forecast.com/locations/{query1}/forecasts/latest'
+				final_url_list.append(final_url)
+				print(final_url_list)
+
+for a in countries_list:
+	if a not in query:
+		query = query.replace(' ', '-')
+		final_url = f'https://www.weather-forecast.com/locations/{query}/forecasts/latest'
+		final_url_list.append(final_url)
+
+print(final_url_list[0])
+
+page = requests.get(final_url_list[0])
+soup = BeautifulSoup(page.content, 'html.parser')
+container = soup.find_all('strong', class_='b-metar-table__weather-station-name')
+container2 = container[0].find('a')
+print(container2.text)
+#Name
+name_container = soup.find('span', class_='show-for-medium-up')
+print(name_container.text)
+# Temparature
+temp_container = soup.find_all('td', class_='b-metar-table__temperature')
+temp_container2 = temp_container[0].find('span')
+print(temp_container2.text + '°C')
+#weather
+weather_container = soup.find_all('div', class_='b-metar-table__weather-container')
+weather_container2 = weather_container[0].find('span')
+print(weather_container2.text)
+#wind
+wind_container = soup.find_all('div', class_='b-metar-table__wind-text')
+wind_container1 = soup.find_all('div', class_='b-metar-table__wind-text')
+
+wind_container2 = wind_container[0].find('div')
+wind_container3 = wind_container1[0].find('div', class_='b-metar-table__wind-detail')
+
+
+print(wind_container2.text)
+print(wind_container3.text)
+#cloud/visibility
+cloud_container = soup.find_all('div', class_='b-metar-table__additionally-container')
+cloud_container2 = cloud_container[0].find('div')
+print(cloud_container2.text)
+
+#Info
+info_container = soup.find('p', class_='large-loc')
+info_list = (info_container.text).split('. ')
+final_info = info_list[0] +'. '+ info_list[1]
+
+
+#Description
+
+des_container =soup.find('tr', class_='b-forecast__table-description b-forecast__hide-for-small days-summaries js-day-summary')
+des = des_container.text
+
+name_find = final_info.find('is')
+final_name = final_info[0:int(name_find)-1]
+des2 = des.replace(' days)', ' days)\n')
+des2 = des2.replace(f'{final_name} Weather', f'\n{final_name} Weather' )
+des_list = des2.split('\n')
+des_list.remove('')
+print(des_list[0])
+
+#time
+time = soup.find('time')
+print(time)
+print((time.text)[0])
+humidity = soup.find_all('tr', class_='b-forecast__table-humidity js-humidity')
+humidity2 = humidity[0].find_all('td')
+print(humidity2)
+if 'am' in str(time.text): # morning
+	print(humidity2[0].text)
+if 'pm' in str(time.text):
+	if int((time.text)[0]) < 6: #afternoon
+		print(humidity2[1].text)
+	if int((time.text)[0]) > 5: #night
+		print(humidity2[2].text)
+
+
+
+
+
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+query = input('Search: ')
+url = 'https://soundcloud.com/search?q=' + query.replace(' ', '%20')
+print(url)
+print()
+page = requests.get(url)
+soup = BeautifulSoup(page.content, 'html.parser')
+a = soup.find_all('a')
+
+query1 = query.replace(' ', "' and '")
+query2 = "'" + query1 + "'"
+
+re_list = []
+name_list = []
+for b in a:
+    c = b.get('href')
+    d = b.text
+    name_list.append(d)
+
+    if eval(query2) in c:
+        re_list.append('https://soundcloud.com'+c)
+
+
+
+
+result = '\n'.join(re_list)
+
+name= '\n'.join(name_list[6:-7])
+print(name)
+print(result)
+
+
+
+
+
+
+
+
+
+
+country_list = ['us', 'usa', 'united states', 'af', 'afghanistan', 'al', 'albania', 'dz', 'algeria', 'as', 'american samoa', 'ad', 'andorra', 'ao', 'angola', 'ai', 'anguilla', 'aq', 'antarctica', 'ag', 'antigua and barbuda', 'ar', 'argentina', 'am', 'armenia', 'aw', 'aruba', 'au', 'australia', 'at', 'austria', 'az', 'azerbaijan', 'bs', 'bahamas', 'bh', 'bahrain', 'bd', 'bangladesh', 'bb', 'barbados', 'by', 'belarus', 'be', 'belgium', 'bz', 'belize', 'bj', 'benin', 'bm', 'bermuda', 'bt', 'bhutan', 'bo', 'bolivia', 'ba', 'bosnia and herzegowina', 'bw', 'botswana', 'bv', 'bouvet island', 'br', 'brazil', 'bn', 'brunei darussalam', 'bg', 'bulgaria', 'bf', 'burkina faso', 'bi', 'burundi', 'kh', 'cambodia', 'cm', 'cameroon', 'ca', 'canada', 'cv', 'cape verde', 'ky', 'cayman islands', 'cf', 'central african rep', 'td', 'chad', 'cl', 'chile', 'cn', 'china', 'cx', 'christmas island', 'cc', 'cocos islands', 'co', 'colombia', 'km', 'comoros', 'cg', 'congo', 'ck', 'cook islands', 'cr', 'costa rica', 'ci', 'cote d`ivoire', 'hr', 'croatia', 'cu', 'cuba', 'cy', 'cyprus', 'cz', 'czech republic', 'dk', 'denmark', 'dj', 'djibouti', 'dm', 'dominica', 'do', 'dominican republic', 'tp', 'east timor', 'ec', 'ecuador', 'eg', 'egypt', 'sv', 'el salvador', 'gq', 'equatorial guinea', 'er', 'eritrea', 'ee', 'estonia', 'et', 'ethiopia', 'fk', 'falkland islands malvinas', 'fo', 'faroe islands', 'fj', 'fiji', 'fi', 'finland', 'fr', 'france', 'gf', 'french guiana', 'pf', 'french polynesia', 'tf', 'french s. territories', 'ga', 'gabon', 'gm', 'gambia', 'ge', 'georgia', 'de', 'germany', 'gh', 'ghana', 'gi', 'gibraltar', 'gr', 'greece', 'gl', 'greenland', 'gd', 'grenada', 'gp', 'guadeloupe', 'gu', 'guam', 'gt', 'guatemala', 'gn', 'guinea', 'gw', 'guinea-bissau', 'gy', 'guyana', 'ht', 'haiti', 'hn', 'honduras', 'hk', 'hong kong', 'hu', 'hungary', 'is', 'iceland', 'in', 'india', 'id', 'indonesia', 'ir', 'iran', 'iq', 'iraq', 'ie', 'ireland', 'il', 'israel', 'it', 'italy', 'jm', 'jamaica', 'jp', 'japan', 'jo', 'jordan', 'kz', 'kazakhstan', 'ke', 'kenya', 'ki', 'kiribati', 'kp', 'korea north', 'kr', 'korea south', 'kw', 'kuwait', 'kg', 'kyrgyzstan', 'la', 'laos', 'lv', 'latvia', 'lb', 'lebanon', 'ls', 'lesotho', 'lr', 'liberia', 'ly', 'libya', 'li', 'liechtenstein', 'lt', 'lithuania', 'lu', 'luxembourg', 'mo', 'macau', 'mk', 'macedonia', 'mg', 'madagascar', 'mw', 'malawi', 'my', 'malaysia', 'mv', 'maldives', 'ml', 'mali', 'mt', 'malta', 'mh', 'marshall islands', 'mq', 'martinique', 'mr', 'mauritania', 'mu', 'mauritius', 'yt', 'mayotte', 'mx', 'mexico', 'fm', 'micronesia', 'md', 'moldova', 'mc', 'monaco', 'mn', 'mongolia', 'ms', 'montserrat', 'ma', 'morocco', 'mz', 'mozambique', 'mm', 'myanmar', 'na', 'namibia', 'nr', 'nauru', 'np', 'nepal', 'nl', 'netherlands', 'an', 'netherlands antilles', 'nc', 'new caledonia', 'nz', 'new zealand', 'ni', 'nicaragua', 'ne', 'niger', 'ng', 'nigeria', 'nu', 'niue', 'nf', 'norfolk island', 'mp', 'northern mariana islands', 'no', 'norway', 'om', 'oman', 'pk', 'pakistan', 'pw', 'palau', 'pa', 'panama', 'pg', 'papua new guinea', 'py', 'paraguay', 'pe', 'peru', 'ph', 'philippines', 'pn', 'pitcairn', 'pl', 'poland', 'pt', 'portugal', 'pr', 'puerto rico', 'qa', 'qatar', 're', 'reunion', 'ro', 'romania', 'ru', 'russian federation', 'rw', 'rwanda', 'kn', 'saint kitts and nevis', 'lc', 'saint lucia', 'vc', 'st vincent/grenadines', 'ws', 'samoa', 'sm', 'san marino', 'st', 'sao tome', 'sa', 'saudi arabia', 'sn', 'senegal', 'sc', 'seychelles', 'sl', 'sierra leone', 'sg', 'singapore', 'sk', 'slovakia', 'si', 'slovenia', 'sb', 'solomon islands', 'so', 'somalia', 'za', 'south africa', 'es', 'spain', 'lk', 'sri lanka', 'sh', 'st. helena', 'pm', 'st.pierre', 'sd', 'sudan', 'sr', 'suriname', 'sz', 'swaziland', 'se', 'sweden', 'ch', 'switzerland', 'sy', 'syrian arab republic', 'tw', 'taiwan', 'tj', 'tajikistan', 'tz', 'tanzania', 'th', 'thailand', 'tg', 'togo', 'tk', 'tokelau', 'to', 'tonga', 'tt', 'trinidad and tobago', 'tn', 'tunisia', 'tr', 'turkey', 'tm', 'turkmenistan', 'tv', 'tuvalu', 'ug', 'uganda', 'ua', 'ukraine', 'ae', 'united arab emirates', 'uk', 'united kingdom', 'uy', 'uruguay', 'uz', 'uzbekistan', 'vu', 'vanuatu', 'va', 'vatican city state', 've', 'venezuela', 'vn', 'viet nam', 'vietnam', 'vg', 'virgin islands british', 'vi', 'virgin islands u.s.', 'eh', 'western sahara', 'ye', 'yemen', 'yu', 'yugoslavia', 'zr', 'zaire', 'zm', 'zambia', 'zw', 'zimbabwe']
+
+
+
+        query = query.title()
+
+        for a in countries_list:
+            if a in query:
+                query = query.replace(f' {a}', '')
+
+        query = query.replace(' ', '-')
+        print(query)
+        url = f'https://www.weather-forecast.com/locations/{query}/forecasts/latest'
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, 'html.parser')
+        try:
+
+            container = soup.find_all('strong', class_='b-metar-table__weather-station-name')
+            container2 = container[0].find('a')
+            print(container2.text)
+        except IndexError:
+            print('Error')
+            error_embed = discord.Embed(
+                description="**City not found**! For the correct result, I'd recommend you to search by only __city name__ (with country name if you want) and remember to find only in ***English***",
+                color=discord.Color.red()
+            )
+
+            await ctx.send(embed=error_embed)
+        container20 = container2
+        # Name
+        name_container = soup.find('span', class_='show-for-medium-up')
+        print(name_container.text)
+        # Temparature
+        temp_container = soup.find_all('td', class_='b-metar-table__temperature')
+        temp_container2 = temp_container[0].find('span')
+        print(temp_container2.text + '°C')
+        # weather
+        weather_container = soup.find_all('div', class_='b-metar-table__weather-container')
+        weather_container2 = weather_container[0].find('span')
+        print(weather_container2.text)
+        # wind
+        wind_container = soup.find_all('div', class_='b-metar-table__wind-text')
+        wind_container1 = soup.find_all('div', class_='b-metar-table__wind-text')
+
+        wind_container2 = wind_container[0].find('div')
+        wind_container3 = wind_container1[0].find('div', class_='b-metar-table__wind-detail')
+
+        print(wind_container2.text)
+        print(wind_container3.text)
+        # cloud/visibility
+        cloud_container = soup.find_all('div', class_='b-metar-table__additionally-container')
+        cloud_container2 = cloud_container[0].find('div')
+        print(cloud_container2.text)
+
+        # Info
+        info_container = soup.find('p', class_='large-loc')
+        info_list = (info_container.text).split('. ')
+        final_info = info_list[0] + '. ' + info_list[1]
+
+        # Description
+
+        des_container = soup.find('tr',
+                                  class_='b-forecast__table-description b-forecast__hide-for-small days-summaries js-day-summary')
+        des = des_container.text
+
+        name_find = final_info.find('is')
+        final_name = final_info[0:int(name_find) - 1]
+        des2 = des.replace(' days)', ' days)\n')
+        des2 = des2.replace(f'{final_name} Weather', f'\n{final_name} Weather')
+        des_list = des2.split('\n')
+        print(des_list)
+        des_list.remove('')
+        print(des_list)
+        print(des_list[0])
+        print(des_list[7])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ua_list = [
+           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
+           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
+           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8',
+           'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
+           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A',
+           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7']
+
+
+random_ua = random.choice(ua_list)
+headers = { 'upgrade-insecure-requests': '1',
+    'user-agent': random_ua,
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-user': '?1',
+    'sec-fetch-dest': 'document',
+    'referer': 'https://www.google.com/',
+    'accept-language': 'en-US,en;q=0.9'}
+print(headers)
+url = 'https://www.google.com/search?q=weather+in+lfhdfhhtjryj'
+
+html = requests.get(url, headers=headers)
+print(html.status_code)
+if html.status_code == 200:
+    print('Successfully access')
+if html.status_code == 404:
+    print('Not found')
+else:
+    print('Unidentified error')
+
+soup = BeautifulSoup(html.content, 'html.parser')
+try:
+    title = soup.find('div', attrs={"id": "wob_loc"}).text
+except AttributeError:
+    print('Location not found')
+time = soup.find('div', attrs={"id": "wob_dts"}).text
+weather_status = soup.find('span', attrs={"id": "wob_dc"}).text
+temperature = soup.find('span', attrs={"id": "wob_tm"}).text
+
+detail = soup.find('div', attrs={'class': "vk_gy vk_sh wob-dtl"})
+
+img = soup.find_all('img')
+img_list = []
+for imgs in img:
+    img_list.append(imgs.get('src'))
+print('https:' + img_list[2])
+
+print(title)
+print(time)
+print(weather_status)
+print(temperature)
+detail2 = (detail.text).replace('%', '%\n').replace('km/h', 'km\h\n')
+
+detail_list = detail2.split('\n')
+detail_list = detail_list[:3]
+print(detail_list)
+
+a = detail_list[0].find(':')
+print((detail_list[0])[a + 2:])
+
+b = detail_list[1].find(':')
+print(detail_list[1])
+print((detail_list[1])[a:])
+
+c = detail_list[2].find(':')
+print(detail_list[2])
+print((detail_list[2])[a:])
+
+
+
+
+
+
+
+ Y O U T U B E L I S T
+
+ @commands.command()
+    async def yt_list(self, ctx, number, *, input):
+
+        youtube_embed = discord.Embed(
+
+            color=discord.Color.red()
+        )
+
+        search_list = []
+        search_input = input.replace(' ', '+')
+
+        if int(number) < 18:
+            await ctx.send('```\nSearching.... Please wait!\n```')
+            results = YoutubeSearch(f'{search_input}', max_results=int(number)).to_dict()
+            i = 0
+            for v in results:
+                i +=1
+                final_url = 'https://www.youtube.com' + v['url_suffix']
+                search_list.append(f'{i}. ' + final_url)
+            a = '\n'.join(search_list)
+
+            youtube_embed.set_author(name=f'{ctx.author.name}', icon_url=f'{ctx.author.avatar_url}')
+            youtube_embed.add_field(name=f'‎‏‏‎{self.client.user} has found result for " {input} " : ‎', value=a)
+            youtube_embed.set_footer(text='© Youtube.com | WebFinder v1.0')
+            await ctx.send(embed=youtube_embed)
+        if int(number) > 17:
+            youtube2_embed = discord.Embed(
+                title='Max search is 17! Please try again.',
+                color=discord.Color.red()
+            )
+
+            await ctx.send(embed=youtube2_embed)
+
+ G O O G L E L I S T
+  @commands.command()
+    async def gg_list(self, ctx, number, *, input):
+        google_embed = discord.Embed(
+
+            color=discord.Color.green()
+        )
+        query = input
+        query_list = []
+        try:
+            if int(number) < 21:
+                await ctx.send('```\nGoogling.... Please wait!\n```')
+                i = 0
+                for j in search(query, tld="com", num=int(number), stop=int(number), pause=2):
+                    i += 1
+                    query_list.append(f'{i}. ' + j)
+                a = '\n'.join(query_list)
+                print(a)
+
+
+                google_embed.set_author(name=f'{ctx.author.name}',icon_url=f'{ctx.author.avatar_url}')
+                google_embed.add_field(name=f'‎‏‏‎{self.client.user} has found result for " {input} " : ‎', value=a)
+                google_embed.set_footer(text='© Google.com | WebFinder v1.0')
+                await ctx.send(embed=google_embed)
+
+            if int(number) > 20:
+                google2_embed = discord.Embed(
+                    title='Max search is 20! Please try again.',
+                    color=discord.Color.red()
+                )
+
+                await ctx.send(embed=google2_embed)
+        except BaseException as e:
+            await ctx.send(traceback.print_exc())
+
+
+
+
+
+
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+#query = input('Search: ')
+#url = 'https://www.imdb.com/chart/top/?ref_=nv_mv_250'
+url ='https://www.imdb.com/chart/top/?ref_=nv_mv_250'
+print(url)
+print()
+page = requests.get(url)
+soup = BeautifulSoup(page.content, 'html.parser')
+container = soup.find_all('tr')
+
+i = 0
+while i < 251:
+    try:
+        i = i + 1
+        container2 = container[i].find('td', class_='titleColumn')
+        container3 = container[i].find('td', class_='ratingColumn imdbRating')
+
+        # TITLE
+        movietittle = container2.find('a').text
+        print(f'{i}. ' + movietittle)
+
+        #DATE
+        moviedate = container2.find('span', class_='secondaryInfo').text
+        print(moviedate)
+
+        #DIRECTOR
+        director = container2.find_all('a')
+        for d in director:
+            main_director = d.get('title')
+            main_list = main_director.split(',')
+            print(main_list[0].replace('(dir.)', ''))
+
+        #RATING
+        primary_rating = str(container3.find('strong'))
+        rating1 = primary_rating.find('title="')
+        rating2 = primary_rating.find('">')
+        print(primary_rating[rating1:rating2].replace('title="', ''))
+        print()
+
+    except IndexError:
+        print('')
+
+
+
+
+
+
+
+
+
+
+
+
+search = ia.get_movie('gjbkfjbhbggf')
+release_date = ia.get_movie_release_dates('gbjgfbfgbbg')
+#data = sorted(ia.get_movie_infoset())
+#print(data)
+
+
+rd1 = release_date['data']
+rd2 = rd1['raw release dates']
+for rd3 in rd2:
+    country = rd3['country']
+    date = rd3['date']
+    print(country.replace('\n', ': ') + date)
+    break
+
+thumnail = search['cover url']
+print(thumnail)
+runtime = search.data['runtimes']
+print(runtime)
+print(search)
+
+rating = search.data['rating']
+print(rating)
+
+country = search.data['countries']
+print(country)
+
+language = search.data['languages']
+print(language)
+cast = search['cast']
+year = search['year']
+print(year)
+print()
+
+plot = search['plot']
+print('Description: ' + plot[0])
+print('Stroyline: ' + plot[1])
+
+genres_list = []
+for genres in search['genres']:
+    print(genres)
+
+final_genres = ', '.join(genres_list)
+print()
+
+for casts in cast[:5]:
+    print(casts['name'])
+print()
+
+drt_list = []
+for directors in search['directors']:
+    drt_list.append(directors['name'])
+    print(drt_list)
+print()
+print(', '.join(drt_list))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print('yes')
+                    grid = [['◼', '◼', '◼'],
+                            ['◼', '◼', '◼'],
+                            ['◼', '◼', '◼']]
+
+                    the_grid = f'''
+                    {grid[0][0]} {grid[0][1]} {grid[0][2]}
+                    {grid[1][0]} {grid[1][1]} {grid[1][2]}
+                    {grid[2][0]} {grid[2][1]} {grid[2][0]}
+                    '''
+                    await ctx.send(the_grid)
+
+
+                    def check_player_x(user1):
+                        return user1.author == ctx.author
+
+                    def check_player_o(user2):
+                        return user2.author == member
+
+
+                    while '◼' not in grid:
+                        player_x_turn = await self.client.wait_for('message', check=check_player_x, timeout=10)
+                        if player_x_turn.content == 'a1' or player_x_turn.content == 'A1':
+                            if grid[0][0] == '◼':
+                                grid[0][0] = '❌'
+                            if grid[0][0] != '◼':
+                                await ctx.send('already filled')
+                        elif player_x_turn.content == 'a2' or player_x_turn.content == 'A2':
+                            grid[1][0] = '❌'
+                        elif player_x_turn.content == 'a3' or player_x_turn.content == 'A3':
+                            grid[2][0] = '❌'
+                        elif player_x_turn.content == 'b1' or player_x_turn.content == 'B1':
+                            grid[0][1] = '❌'
+                        elif player_x_turn.content == 'b2' or player_x_turn.content == 'B2':
+                            grid[1][1] = '❌'
+                        elif player_x_turn.content == 'b3' or player_x_turn.content == 'B3':
+                            grid[2][1] = '❌'
+                        elif player_x_turn.content == 'c1' or player_x_turn.content == 'C1':
+                            grid[0][2] = '❌'
+                        elif player_x_turn.content == 'c2' or player_x_turn.content == 'C2':
+                            grid[1][2] = '❌'
+                        elif player_x_turn.content == 'c3' or player_x_turn.content == 'C3':
+                            grid[2][2] = '❌'
+
+                        await ctx.send(the_grid)
+                        player_o_turn = await self.client.wait_for('message', check=check_player_o, timeout=10)
+                        if player_o_turn.content == 'a1' or player_x_turn.content == 'A1':
+                            grid[0][0] = '❌'
+                        elif player_o_turn.content == 'a2' or player_x_turn.content == 'A2':
+                            grid[1][0] = '❌'
+                        elif player_o_turn.content == 'a3' or player_x_turn.content == 'A3':
+                            grid[2][0] = '❌'
+                        elif player_o_turn.content == 'b1' or player_x_turn.content == 'B1':
+                            grid[0][1] = '❌'
+                        elif player_o_turn.content == 'b2' or player_x_turn.content == 'B2':
+                            grid[1][1] = '❌'
+                        elif player_o_turn.content == 'b3' or player_x_turn.content == 'B3':
+                            grid[2][1] = '❌'
+                        elif player_x_turn.content == 'c1' or player_x_turn.content == 'C1':
+                            grid[0][2] = '❌'
+                        elif player_o_turn.content == 'c2' or player_x_turn.content == 'C2':
+                            grid[1][2] = '❌'
+                        elif player_o_turn.content == 'c3' or player_x_turn.content == 'C3':
+                            grid[2][2] = '❌'
+
+                        await ctx.send(the_grid)
