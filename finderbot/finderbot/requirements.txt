@@ -11,5 +11,5 @@ PyDictionary==2.0.1
 requests==2.24.0
 Wikipedia-API==0.5.4
 youtube-search==1.1.0
-aiohttp==3.6.2
+aiohttp==3.7.4
 asyncio
