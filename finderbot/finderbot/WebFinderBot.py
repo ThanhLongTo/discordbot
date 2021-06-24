@@ -45,4 +45,4 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run('NzQzMDMxNzY0MzAxMTE5NTI4.XzOwQQ.Hj81hbn9vhoVNHSXfNcSyS3vswQ')
+client.run('###')
